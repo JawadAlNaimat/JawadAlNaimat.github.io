@@ -1,61 +1,64 @@
-# Hi there, I'm Jawad AL-Naimat 👋
-### Senior Mobile Developer | Flutter Specialist
+# 🎭 Motion, Micro-Interactions & Premium UI/UX Portfolio
 
-I build high-end, fluid, and scalable mobile experiences. Obsessed with pixel-perfect UI/UX, robust state management, and leveraging cutting-edge AI tools to accelerate development workflows.
+> "UI is the body, but motion is the soul of an app." 
 
-[🌍 Portfolio](#) • [👔 LinkedIn](#) • [📧 Email Me](mailto:your.email@example.com)
-
----
-
-## 🚀 About Me
-
-I am a seasoned Mobile Application Developer based in Amman, Jordan. With over a decade of experience in the software development industry, I specialize in crafting high-performance cross-platform mobile apps using **Flutter**. 
-
-* **UI/UX Enthusiast:** Passionate about advanced UI aesthetics, including glassmorphism, 3D character integration, and micro-animations.
-* **Modern Workflow:** Big proponent of **vibe coding**—combining deep architectural knowledge with advanced AI orchestration (Claude 3.5 Sonnet, ChatGPT-o3-pro, Google AI Studio) to build features at lightning speed.
+Welcome to my animation playground. Below is a curated selection of advanced mobile animations, transitions, and high-fidelity custom UI components built using the **Flutter framework**.
 
 ---
 
-## 🛠️ Tech Stack & Expertise
+## ⚡ Showcase: Core Animation Archetypes
 
-| Category | Technologies |
-| :--- | :--- |
-| **Frameworks** | Flutter, React Native |
-| **State Management** | BLoC, GetX, Provider |
-| **Architecture & Tools** | Clean Architecture, Git, GitHub Actions, CI/CD pipelines |
-| **Design Aesthetics** | Motion Design, Glassmorphism, 3D Asset Integration |
+### 1. The Fluid Checkout Experience
+*Smooth spatial awareness and micro-interactions designed to minimize drop-offs.*
 
----
-
-## 📱 Featured Projects
-
-### 🍕 Yalla Bite (يلا بايت)
-A modern, high-end food ordering mobile application featuring an immersive UI, seamless state transitions, and an optimized user checkout flow.
-* **Tech Stack:** Flutter, BLoC, Advanced Custom Painters & Animations.
-* *Repository / Showcase link coming soon*
-
-### 🏥 National E-Health Solutions (Jordan)
-Contributed to the architecture, development, and scaling of Jordan's national e-health mobile ecosystem, significantly improving healthcare accessibility.
-* **Dr@Hakeem:** Empowering physicians with mobile access to patient records.
-* **My Hakeem:** Giving citizens direct access to their personal medical profiles and prescriptions.
-
----
-
-## 🎓 Education & Experience
-
-* **Senior Mobile Developer** @ Electronic Health Solutions *(Nov 2024 – Present)*
-* **Specialist Software Developer** *(May 2015 – Nov 2024)*
-* **MBA** – Middle East University *(2014 – 2016)*
-* **B.Sc. in Computer Science** – University of Jordan *(2007 – 2012)*
+<table width="100%">
+  <tr>
+    <td width="40%" valign="top">
+      <h4>Key Highlights:</h4>
+      <ul>
+        <li><b>Glassmorphic Card Overlay:</b> Custom-painted glass blur shifting based on accelerometer input.</li>
+        <li><b>Dynamic State Morphing:</b> The "Pay Now" button seamlessly morphs into a success spinner, then scales into a receipt checkmark using <code>ImplicitlyAnimatedWidget</code>.</li>
+        <li><b>Physics-Based Sheets:</b> Bottom sheet uses custom spring physics ($e^{-\beta t}$) instead of rigid standard curves.</li>
+      </ul>
+    </td>
+    <td width="60%" align="center">
+      <!-- REPLACE WITH YOUR APP GIF OR MP4 -->
+      <img src="https://media.giphy.com/media/your-checkout-animation.gif" width="320" alt="Fluid Checkout Animation" style="border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 🤝 Let's Connect!
+### 2. Immersive 3D Parallax & Food Card Transitions
+*Designed for deep engagement, blending spatial depth with micro-animations.*
 
-I'm always open to discussing mobile architecture, stunning UI/UX trends, or the future of AI-assisted development. 
-
-* **GitHub:** [@your-username](https://github.com/your-username)
-* **Location:** Amman, Jordan 🇯🇴
+<table width="100%">
+  <tr>
+    <td width="60%" align="center">
+      <!-- REPLACE WITH YOUR APP GIF OR MP4 -->
+      <img src="https://media.giphy.com/media/your-3d-parallax.gif" width="320" alt="3D Parallax Food Card" style="border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);"/>
+    </td>
+    <td width="40%" valign="top">
+      <h4>Key Highlights:</h4>
+      <ul>
+        <li><b>3D Character Integration:</b> Layered parallax matrix transformations ($4 \times 4$ Skew/Rotation) responding directly to user touch drag gestures.</li>
+        <li><b>Shared Element Transitions:</b> Hero animations built completely from scratch using custom bounds and clipping clips for asymmetric expansions.</li>
+        <li><b>State Syncing:</b> BLoC-driven state changes hooked directly into custom animation controllers to guarantee zero frame drops ($60\text{fps}/120\text{Hz}$).</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
-<p align="center">Built with 💻, ☕, and a lot of vibe coding.</p>
+
+## 🛠️ The Motion Engine: My Tech Stack
+
+To achieve buttery-smooth, native-grade rendering at stable frame rates, I utilize a specialized suite of animation tools and architecture patterns within Flutter:
+
+```text
+📦 Flutter Animation Engine
+ ├── 🎨 Rive & Lottie              --> Complex vector math, interactive state machines, and 3D character rigging.
+ ├── 📐 CustomPainters & Canvas    --> Mathematical UI execution, custom shaders, and tailored clipping paths.
+ ├── 🌪️ Implicit & Explicit Core   --> Tweens, CurvedAnimation, and precisely orchestrated AnimationControllers.
+ └── 🧠 BLoC State Orchestration   --> Decoupled UI triggers emitting high-frequency ticks for synchronized UI states.
