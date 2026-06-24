@@ -230,4 +230,211 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 10px;
-            letter-spacing: -0.
+            letter-spacing: -0.01em;
+            color: #fff;
+        }
+
+        .project-details p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .project-details ul {
+            list-style-type: none;
+        }
+
+        .project-details li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .project-details li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .project-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .project-visual img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover .project-visual img {
+            transform: rotate(-1deg) scale(1.03);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* --- Modern Timeline Node Tree --- */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0f172a;
+            border: 2px solid var(--neon-blue);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-item:hover::before {
+            background: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .role-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .company-date {
+            font-size: 0.92rem;
+            color: var(--neon-blue);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* --- Footer Details --- */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 24px 0 10px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Jawad AL-Naimat</h1>
+        <div class="subtitle">Senior Mobile Developer & Flutter Architect</div>
+        <p class="tagline">I engineering high-end, fluid, and scalable mobile experiences. Obsessed with pixel-perfect UI/UX micro-interactions, clean states, and advanced AI-assisted creation pipelines.</p>
+        <div class="links-meta">
+            <a href="#" class="btn">🌍 Portfolio</a>
+            <a href="#" class="btn">👔 LinkedIn</a>
+            <a href="mailto:your.email@example.com" class="btn">📧 Email Me</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>🚀 Professional Context</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 28px; font-size: 1.05rem;">
+            Based in Amman, Jordan, I am a seasoned developer with over a decade of hands-on technical industry expertise. My core discipline lies within framing beautiful, native-grade client deployments using the Flutter framework ecosystem.
+        </p>
+        <div class="badge-grid">
+            <span class="badge">Flutter SDK Core</span>
+            <span class="badge">React Native</span>
+            <span class="badge">BLoC Architecture</span>
+            <span class="badge">GetX Toolset</span>
+            <span class="badge">Clean Architecture Domains</span>
+            <span class="badge">CI/CD Pipeline Configurations</span>
+            <span class="badge vibe">✨ Advanced Vibe Coding Workflow</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎭 Production Engineering Showcase</h2>
+        
+        <div class="project-card">
+            <div class="project-details">
+                <h3>🍕 Yalla Bite (يلا بايت)</h3>
+                <p>A premium consumer-facing mobile application emphasizing immersive animations and sleek transaction boundaries.</p>
+                <ul>
+                    <li><b>Glassmorphism Mechanics:</b> Tailored real-time blur metrics that adapt cleanly based on runtime layout positions.</li>
+                    <li><b>State-Driven Animation:</b> Fluid interface pathways where transactional properties gracefully morph between CTA buttons and processing widgets.</li>
+                    <li><b>Mathematical Vector Physics:</b> Employs precise custom spring profiles ensuring organic animation timing over basic uniform curves.</li>
+                </ul>
+            </div>
+            <div class="project-visual">
+                <img src="https://media.giphy.com/media/your-checkout-animation.gif" alt="Yalla Bite UI Showcase">
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-details">
+                <h3>🏥 National E-Health Ecosystem</h3>
+                <p>Designed and scaled essential operational frameworks ensuring stable application performance across national medical layers.</p>
+                <ul>
+                    <li><b>Dr@Hakeem:</b> Specialized interface structure providing clinical professionals instantaneous data visibility.</li>
+                    <li><b>My Hakeem:</b> Accessible patient ecosystem configured for clear records management and medical utility workflows.</li>
+                </ul>
+            </div>
+            <div class="project-visual">
+                <img src="https://media.giphy.com/media/your-3d-parallax.gif" alt="National Medical Platform Overview">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎓 Timeline & Credentials</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="role-title">Senior Mobile Developer</div>
+                <div class="company-date">Electronic Health Solutions &bull; Nov 2024 – Present</div>
+            </div>
+            <div class="timeline-item">
+                <div class="role-title">Specialist Software Developer</div>
+                <div class="company-date">May 2015 – Nov 2024</div>
+            </div>
+            <div class="timeline-item">
+                <div class="role-title">Master of Business Administration (MBA)</div>
+                <div class="company-date">Middle East University &bull; 2014 – 2016</div>
+            </div>
+            <div class="timeline-item">
+                <div class="role-title">B.Sc. in Computer Science</div>
+                <div class="company-date">University of Jordan &bull; 2007 – 2012</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Engineered with HTML5, CSS Grid & modern Vibe Coding structures. Amman, Jordan 🇯🇴</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
