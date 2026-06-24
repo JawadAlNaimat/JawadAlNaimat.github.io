@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jawad AL-Naimat | Senior Mobile Developer</title>
     <style>
-        /* --- Modern CSS Variables & Reset --- */
+        /* --- High-End Modern Design System --- */
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%);
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --bg-dark: #030712;
+            --bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 45%, #030712 100%);
+            --card-bg: rgba(15, 23, 42, 0.45);
+            --card-hover-bg: rgba(30, 41, 59, 0.6);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --card-border-hover: rgba(6, 182, 212, 0.3);
+            
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent-cyan: #06b6d4;
-            --accent-blue: #3b82f6;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text-muted: #64748b;
+            
+            --neon-cyan: #06b6d4;
+            --neon-blue: #3b82f6;
+            --neon-purple: #a855f7;
+            
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -25,316 +34,200 @@
 
         body {
             font-family: var(--font-sans);
-            background: var(--bg-gradient);
+            background: var(--bg-dark);
+            background-image: var(--bg-gradient);
             background-attachment: fixed;
             color: var(--text-primary);
-            line-height: 1.6;
-            padding: 40px 20px;
+            line-height: 1.7;
+            padding: 60px 20px;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
         }
 
+        /* Ambient Dynamic Background Blurs */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(6, 182, 212, 0.08);
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        body::before { top: -10%; right: -5%; background: rgba(168, 85, 247, 0.06); }
+        body::after { bottom: 10%; left: -10%; }
+
         .container {
-            max-width: 900px;
+            max-width: 940px;
             margin: 0 auto;
         }
 
-        /* --- Glassmorphic Layout Components --- */
+        /* --- Premium Container Card Architecture --- */
         header, section {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 40px;
+            border-radius: 28px;
+            padding: 48px;
             margin-bottom: 32px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-smooth);
         }
 
-        /* --- Header Styling --- */
+        header:hover, section:hover {
+            border-color: rgba(255, 255, 255, 0.09);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- Creative Header Area --- */
         header {
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
+            padding: 64px 48px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 8px;
-            background: linear-gradient(to right, #ffffff, #93c5fd);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #22d3ee 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 1;
         }
 
         .subtitle {
-            font-size: 1.25rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
+            font-size: 1.35rem;
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            font-size: 1.05rem;
         }
 
         .tagline {
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 24px auto;
+            max-width: 680px;
+            margin: 0 auto 32px auto;
+            font-size: 1.1rem;
         }
 
-        /* --- Interactive Links & Buttons --- */
+        /* --- Sleek Pill Action Controls --- */
         .links-meta {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn {
             text-decoration: none;
             color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 20px;
-            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 26px;
+            border-radius: 100px;
             border: 1px solid var(--card-border);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
         }
 
         .btn:hover {
-            background: var(--accent-cyan);
-            color: #0f172a;
-            border-color: var(--accent-cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+            background: #fff;
+            color: #030712;
+            border-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.2);
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
             display: flex;
             align-items: center;
             gap: 12px;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 16px;
         }
 
-        /* --- Tech Stack Badges --- */
+        /* --- Tech Stack Badge Grid --- */
         .badge-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
         }
 
         .badge {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .badge:hover {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: rgba(59, 130, 246, 0.3);
             color: #93c5fd;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            transform: translateY(-1px);
         }
 
         .badge.vibe {
-            background: rgba(6, 182, 212, 0.1);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
             color: #22d3ee;
             border: 1px solid rgba(6, 182, 212, 0.3);
+            font-weight: 600;
+        }
+        
+        .badge.vibe:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
         }
 
-        /* --- Project Grid Side-By-Side HTML Structural Layout --- */
+        /* --- Premium Grid Showcase Deck --- */
         .project-card {
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(3, 7, 18, 0.3);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 24px;
+            border-radius: 20px;
+            padding: 32px;
             margin-bottom: 24px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 32px;
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover {
+            background: var(--card-hover-bg);
+            border-color: var(--card-border-hover);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 40px -20px rgba(6, 182, 212, 0.15);
         }
 
         @media (min-width: 768px) {
             .project-card {
-                grid-template-columns: 1.2fr 0.8fr;
+                grid-template-columns: 1.25fr 0.75fr;
                 align-items: center;
             }
         }
 
         .project-details h3 {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .project-details p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
-        .project-details ul {
-            list-style-type: none;
-        }
-
-        .project-details li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .project-details li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-cyan);
-        }
-
-        .project-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .project-visual img {
-            width: 100%;
-            max-width: 260px;
-            border-radius: 14px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        }
-
-        .timeline-item {
-            margin-bottom: 20px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .role-title {
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .company-date {
-            font-size: 0.9rem;
-            color: var(--accent-blue);
-            margin-bottom: 4px;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            padding: 20px 0;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-    <header>
-        <h1>Jawad AL-Naimat</h1>
-        <div class="subtitle">Senior Mobile Developer | Flutter Specialist</div>
-        <p class="tagline">I build high-end, fluid, and scalable mobile experiences. Obsessed with pixel-perfect UI/UX, robust state management, and leveraging cutting-edge AI workflows.</p>
-        <div class="links-meta">
-            <a href="#" class="btn">🌍 Portfolio</a>
-            <a href="#" class="btn">👔 LinkedIn</a>
-            <a href="mailto:your.email@example.com" class="btn">📧 Email Me</a>
-        </div>
-    </header>
-
-    <section>
-        <h2>🚀 About Me</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 20px;">
-            I am a seasoned Mobile Application Developer based in Amman, Jordan. With over a decade of industry expertise, I specialize in crafting ultra-high-performance cross-platform mobile ecosystems.
-        </p>
-        <div class="badge-grid">
-            <span class="badge">Flutter Core</span>
-            <span class="badge">React Native</span>
-            <span class="badge">BLoC</span>
-            <span class="badge">GetX</span>
-            <span class="badge">Clean Architecture</span>
-            <span class="badge">CI/CD Automation</span>
-            <span class="badge vibe">✨ Vibe Coding Mastered</span>
-        </div>
-    </section>
-
-    <section>
-        <h2>🎭 Motion & Core Showcase</h2>
-        
-        <div class="project-card">
-            <div class="project-details">
-                <h3>🍕 Yalla Bite (يلا بايت)</h3>
-                <p>A premium food ordering ecosystem highlighting non-linear micro-interactions and optimized transaction flows.</p>
-                <ul>
-                    <li><b>Glassmorphism Layering:</b> Custom real-time blurs responding to gestural boundaries.</li>
-                    <li><b>State Morphing:</b> Checkout sequence morphs seamlessly from CTA buttons to localized success checkmarks.</li>
-                    <li><b>Fluid Physics:</b> Implements clean mathematical spring vectors instead of generic curve interpolations.</li>
-                </ul>
-            </div>
-            <div class="project-visual">
-                <img src="https://media.giphy.com/media/your-checkout-animation.gif" alt="Yalla Bite Checkout Experience">
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-details">
-                <h3>🏥 National E-Health Ecosystem</h3>
-                <p>Architected and scaled secure core frameworks delivering nationwide access to digital medical platforms.</p>
-                <ul>
-                    <li><b>Dr@Hakeem:</b> Clinical systems giving doctors real-time access to diagnostic timelines.</li>
-                    <li><b>My Hakeem:</b> Patient portal prioritizing ease-of-use UI configurations for script renewals and access to files.</li>
-                </ul>
-            </div>
-            <div class="project-visual">
-                <img src="https://media.giphy.com/media/your-3d-parallax.gif" alt="National App Interface Preview">
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>🎓 Experience & Education</h2>
-        <div class="timeline-item">
-            <div class="role-title">Senior Mobile Developer</div>
-            <div class="company-date">Electronic Health Solutions (Nov 2024 – Present)</div>
-        </div>
-        <div class="timeline-item">
-            <div class="role-title">Specialist Software Developer</div>
-            <div class="company-date">May 2015 – Nov 2024</div>
-        </div>
-        <div class="timeline-item">
-            <div class="role-title">Master of Business Administration (MBA)</div>
-            <div class="company-date">Middle East University (2014 – 2016)</div>
-        </div>
-        <div class="timeline-item">
-            <div class="role-title">B.Sc. in Computer Science</div>
-            <div class="company-date">University of Jordan (2007 – 2012)</div>
-        </div>
-    </section>
-
-    <footer>
-        <p>Built with HTML5, CSS Grid & a lot of vibe coding. Location: Amman, Jordan 🇯🇴</p>
-    </footer>
-
-</div>
-
-</body>
-</html>
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.
