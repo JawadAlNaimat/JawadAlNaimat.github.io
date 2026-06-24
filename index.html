@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawad AL-Naimat | Senior Mobile Developer</title>
+    <style>
+        /* --- Modern CSS Variables & Reset --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- Glassmorphic Layout Components --- */
+        header, section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- Header Styling --- */
+        header {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 24px auto;
+        }
+
+        /* --- Interactive Links & Buttons --- */
+        .links-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--card-border);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn:hover {
+            background: var(--accent-cyan);
+            color: #0f172a;
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 12px;
+        }
+
+        /* --- Tech Stack Badges --- */
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge.vibe {
+            background: rgba(6, 182, 212, 0.1);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        /* --- Project Grid Side-By-Side HTML Structural Layout --- */
+        .project-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .project-card {
+                grid-template-columns: 1.2fr 0.8fr;
+                align-items: center;
+            }
+        }
+
+        .project-details h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .project-details p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .project-details ul {
+            list-style-type: none;
+        }
+
+        .project-details li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .project-details li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        .project-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-visual img {
+            width: 100%;
+            max-width: 260px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .role-title {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .company-date {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            margin-bottom: 4px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Jawad AL-Naimat</h1>
+        <div class="subtitle">Senior Mobile Developer | Flutter Specialist</div>
+        <p class="tagline">I build high-end, fluid, and scalable mobile experiences. Obsessed with pixel-perfect UI/UX, robust state management, and leveraging cutting-edge AI workflows.</p>
+        <div class="links-meta">
+            <a href="#" class="btn">🌍 Portfolio</a>
+            <a href="#" class="btn">👔 LinkedIn</a>
+            <a href="mailto:your.email@example.com" class="btn">📧 Email Me</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>🚀 About Me</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+            I am a seasoned Mobile Application Developer based in Amman, Jordan. With over a decade of industry expertise, I specialize in crafting ultra-high-performance cross-platform mobile ecosystems.
+        </p>
+        <div class="badge-grid">
+            <span class="badge">Flutter Core</span>
+            <span class="badge">React Native</span>
+            <span class="badge">BLoC</span>
+            <span class="badge">GetX</span>
+            <span class="badge">Clean Architecture</span>
+            <span class="badge">CI/CD Automation</span>
+            <span class="badge vibe">✨ Vibe Coding Mastered</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎭 Motion & Core Showcase</h2>
+        
+        <div class="project-card">
+            <div class="project-details">
+                <h3>🍕 Yalla Bite (يلا بايت)</h3>
+                <p>A premium food ordering ecosystem highlighting non-linear micro-interactions and optimized transaction flows.</p>
+                <ul>
+                    <li><b>Glassmorphism Layering:</b> Custom real-time blurs responding to gestural boundaries.</li>
+                    <li><b>State Morphing:</b> Checkout sequence morphs seamlessly from CTA buttons to localized success checkmarks.</li>
+                    <li><b>Fluid Physics:</b> Implements clean mathematical spring vectors instead of generic curve interpolations.</li>
+                </ul>
+            </div>
+            <div class="project-visual">
+                <img src="https://media.giphy.com/media/your-checkout-animation.gif" alt="Yalla Bite Checkout Experience">
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-details">
+                <h3>🏥 National E-Health Ecosystem</h3>
+                <p>Architected and scaled secure core frameworks delivering nationwide access to digital medical platforms.</p>
+                <ul>
+                    <li><b>Dr@Hakeem:</b> Clinical systems giving doctors real-time access to diagnostic timelines.</li>
+                    <li><b>My Hakeem:</b> Patient portal prioritizing ease-of-use UI configurations for script renewals and access to files.</li>
+                </ul>
+            </div>
+            <div class="project-visual">
+                <img src="https://media.giphy.com/media/your-3d-parallax.gif" alt="National App Interface Preview">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎓 Experience & Education</h2>
+        <div class="timeline-item">
+            <div class="role-title">Senior Mobile Developer</div>
+            <div class="company-date">Electronic Health Solutions (Nov 2024 – Present)</div>
+        </div>
+        <div class="timeline-item">
+            <div class="role-title">Specialist Software Developer</div>
+            <div class="company-date">May 2015 – Nov 2024</div>
+        </div>
+        <div class="timeline-item">
+            <div class="role-title">Master of Business Administration (MBA)</div>
+            <div class="company-date">Middle East University (2014 – 2016)</div>
+        </div>
+        <div class="timeline-item">
+            <div class="role-title">B.Sc. in Computer Science</div>
+            <div class="company-date">University of Jordan (2007 – 2012)</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built with HTML5, CSS Grid & a lot of vibe coding. Location: Amman, Jordan 🇯🇴</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
