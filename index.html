@@ -3,36 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jawad AL-Naimat | Senior Mobile Developer</title>
-    <!-- Premium Google Fonts Integration -->
+    <title>Jawad AL-Naimat | Senior Mobile Architect</title>
+    
+    <!-- Premium Google Fonts & GSAP CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
     <style>
-        /* --- Premium Bespoke Design System --- */
+        /* --- Modern CSS Architecture --- */
         :root {
-            /* Matte Obsidian & Cyber Slate Palette */
-            --bg-base: #0b0f19;
-            --bg-surface: rgba(17, 24, 39, 0.7);
-            --bg-surface-hover: rgba(31, 41, 55, 0.8);
-            --border-subtle: rgba(255, 255, 255, 0.04);
+            --bg-base: #040406;
+            --bg-surface: rgba(9, 10, 16, 0.6);
+            --bg-surface-hover: rgba(14, 16, 26, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.03);
             --border-active: rgba(34, 211, 238, 0.25);
             
-            /* Typography Hierarchies */
             --font-main: 'Inter', system-ui, sans-serif;
             --font-code: 'JetBrains Mono', monospace;
             
             --text-pure: #ffffff;
-            --text-body: #9ca3af;
-            --text-muted: #6b7280;
+            --text-body: #94a3b8;
+            --text-muted: #475569;
             
-            /* Sharp Laser Accents */
             --laser-cyan: #22d3ee;
             --laser-blue: #3b82f6;
-            --laser-emerald: #10b981;
-            
-            --transition-crisp: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         * {
@@ -48,26 +44,29 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            perspective: 1000px; /* Enables 3D Card Tilts */
         }
 
-        /* Subtle Background Grid Mesh */
-        body::before {
-            content: '';
+        /* Ambient Cursor-Tracking Flashlight Glow */
+        .ambient-glow {
             position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 40px 40px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, rgba(59, 130, 246, 0.02) 50%, transparent 100%);
+            top: -250px;
+            left: -250px;
             z-index: -1;
             pointer-events: none;
+            transform: translate3d(0,0,0);
+            will-change: transform;
         }
 
-        /* Master Structural Grid Layout */
+        /* Master Grid Layout */
         .master-grid {
             display: grid;
             grid-template-columns: 1fr;
-            max-width: 1250px;
+            max-width: 1200px;
             margin: 0 auto;
             gap: 40px;
             padding: 40px 24px;
@@ -75,113 +74,112 @@
 
         @media (min-width: 1024px) {
             .master-grid {
-                grid-template-columns: 420px 1fr;
-                padding: 80px 40px;
+                grid-template-columns: 400px 1fr;
+                padding: 100px 40px;
                 gap: 80px;
             }
             
             .left-column {
                 position: sticky;
-                top: 80px;
-                height: calc(100vh - 160px);
+                top: 100px;
+                height: calc(100vh - 200px);
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
             }
         }
 
-        /* --- Global Box Architecture --- */
+        /* --- Panel Components --- */
         .panel {
             background: var(--bg-surface);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-subtle);
             border-radius: 20px;
-            padding: 32px;
+            padding: 36px;
             margin-bottom: 24px;
-            transition: var(--transition-crisp);
+            opacity: 0; /* Animated via GSAP on initialization */
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform, opacity;
         }
 
-        .panel:hover {
-            border-color: rgba(255, 255, 255, 0.08);
-            background: var(--bg-surface-hover);
-        }
-
-        /* --- Left Column Typography & Elements --- */
+        /* --- Typography & Branding --- */
         h1 {
-            font-size: 2.75rem;
+            font-size: 2.85rem;
             font-weight: 800;
             letter-spacing: -0.04em;
             line-height: 1.1;
             margin-bottom: 12px;
+            opacity: 0;
         }
 
         .mono-tag {
             font-family: var(--font-code);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--laser-cyan);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             margin-bottom: 16px;
             display: block;
+            opacity: 0;
         }
 
         .tagline {
             color: var(--text-body);
             font-size: 1.05rem;
-            margin-bottom: 32px;
-            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0;
         }
 
-        /* Dynamic Nav/Action Pills */
+        /* Action Controls */
         .action-stack {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            opacity: 0;
         }
 
         .btn-pill {
             text-decoration: none;
             color: var(--text-pure);
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--border-subtle);
-            padding: 14px 24px;
+            padding: 16px 24px;
             border-radius: 12px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: var(--transition-crisp);
             font-family: var(--font-code);
+            transition: background 0.3s, border-color 0.3s;
         }
 
         .btn-pill::after {
-            content: '→';
+            content: '->';
             color: var(--text-muted);
-            transition: var(--transition-crisp);
+            transition: transform 0.3s;
         }
 
         .btn-pill:hover {
             background: var(--text-pure);
             color: var(--bg-base);
             border-color: var(--text-pure);
-            transform: translateX(4px);
         }
 
         .btn-pill:hover::after {
             color: var(--bg-base);
-            transform: translateX(2px);
+            transform: translateX(4px);
         }
 
-        /* --- Right Column Section Content --- */
         h2 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
             text-transform: uppercase;
             color: var(--text-pure);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             font-family: var(--font-code);
             display: flex;
             align-items: center;
@@ -193,7 +191,7 @@
             color: var(--laser-cyan);
         }
 
-        /* Badge Matrix layout */
+        /* Badge Matrix Layout */
         .tech-matrix {
             display: flex;
             flex-wrap: wrap;
@@ -203,7 +201,7 @@
         .matrix-tag {
             font-family: var(--font-code);
             font-size: 0.8rem;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--border-subtle);
             padding: 6px 14px;
             border-radius: 8px;
@@ -211,44 +209,51 @@
         }
 
         .matrix-tag.special {
-            background: rgba(34, 211, 238, 0.06);
+            background: rgba(34, 211, 238, 0.05);
             border-color: var(--border-active);
             color: var(--laser-cyan);
             font-weight: 600;
         }
 
-        /* Product Cards Portfolio Layout */
+        /* Showcase Cards Portfolio Layout */
         .showcase-box {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         .showcase-item {
             border: 1px solid var(--border-subtle);
             border-radius: 16px;
             padding: 28px;
-            background: rgba(255, 255, 255, 0.01);
-            transition: var(--transition-crisp);
+            background: rgba(255, 255, 255, 0.005);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            transition: border-color 0.3s;
+        }
+
+        @media (min-width: 640px) {
+            .showcase-item {
+                grid-template-columns: 1fr 160px;
+                align-items: center;
+            }
         }
 
         .showcase-item:hover {
             border-color: var(--border-active);
-            background: rgba(34, 211, 238, 0.02);
-            transform: translateY(-2px);
         }
 
         .showcase-item h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
+            margin-bottom: 6px;
         }
 
         .showcase-item p {
             color: var(--text-body);
             font-size: 0.95rem;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .bullet-list {
@@ -260,7 +265,7 @@
             padding-left: 20px;
             font-size: 0.9rem;
             color: var(--text-body);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .bullet-list li::before {
@@ -268,10 +273,28 @@
             position: absolute;
             left: 0;
             color: var(--laser-cyan);
-            font-weight: bold;
         }
 
-        /* Minimalist Modern Timeline Layout */
+        .showcase-asset {
+            width: 100%;
+            height: 160px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .showcase-asset img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        /* Minimalist Chronological Tree */
         .history-tree {
             display: flex;
             flex-direction: column;
@@ -283,8 +306,8 @@
             grid-template-columns: 1fr;
             gap: 4px;
             padding-left: 16px;
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition-crisp);
+            border-left: 1px solid rgba(255, 255, 255, 0.04);
+            transition: border-left-color 0.3s;
         }
 
         .tree-node:hover {
@@ -294,7 +317,6 @@
         .node-role {
             font-size: 1.05rem;
             font-weight: 600;
-            color: var(--text-pure);
         }
 
         .node-meta {
@@ -307,101 +329,110 @@
             color: var(--text-muted);
         }
 
-        /* Footer styling */
         footer {
             margin-top: 40px;
             font-family: var(--font-code);
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
+            line-height: 1.8;
         }
 
         @media (max-width: 1023px) {
-            .left-column {
-                margin-bottom: 24px;
-            }
+            .left-column { margin-bottom: 40px; }
         }
     </style>
 </head>
 <body>
 
+<div class="ambient-glow" id="glow"></div>
+
 <div class="master-grid">
 
-    <!-- LEFT COLUMN: STICKY BRANDING & IDENTITY -->
+    <!-- LEFT STICKY ENGINE BLOCK -->
     <div class="left-column">
         <div>
-            <span class="mono-tag">Senior System Architecture</span>
-            <h1>Jawad AL-Naimat</h1>
-            <p class="tagline">Engineering high-end, fluid mobile architectures. Obsessed with clean state handling, native micro-interactions, and high-velocity vibe coding workflows.</p>
+            <span class="mono-tag" id="monoTag">Architecture Profile</span>
+            <h1 id="mainTitle">Jawad AL-Naimat</h1>
+            <p class="tagline" id="tagline">Engineering premium cross-platform mobile systems. Focused on buttery smooth layout execution ($120\text{Hz}$), explicit UI states, and rapid JavaScript-orchestrated interactivity.</p>
         </div>
 
-        <div class="action-stack">
-            <a href="#" class="btn-pill">connect_linkedin</a>
-            <a href="#" class="btn-pill">open_portfolio</a>
-            <a href="mailto:your.email@example.com" class="btn-pill">secure_email_handshake</a>
+        <div class="action-stack" id="actions">
+            <a href="https://linkedin.com" target="_blank" class="btn-pill">system.log_linkedin</a>
+            <a href="mailto:your.email@example.com" class="btn-pill">system.exec_email_handshake</a>
             
             <footer>
-                <p>// Amman, Jordan 🇯🇴</p>
-                <p>© 2026 Core Engine. All rights reserved.</p>
+                <p>// Location: Amman, Jordan 🇯🇴</p>
+                <p>&copy; 2026 Architectural Instance.</p>
             </footer>
         </div>
     </div>
 
-    <!-- RIGHT COLUMN: SCROLLABLE WORK MATRIX -->
+    <!-- RIGHT SCROLLING INDEX MATRIX -->
     <div class="right-column">
         
-        <!-- SECTION 1: CORE ARCHITECTURE TEAMS -->
-        <section class="panel">
-            <h2>Technical_Competencies</h2>
+        <!-- SECTION 1: COMPETENCIES -->
+        <section class="panel project-card">
+            <h2>Core_Stack</h2>
             <div class="tech-matrix">
-                <span class="matrix-tag special">Flutter SDK Core</span>
+                <span class="matrix-tag special">Flutter SDK</span>
                 <span class="matrix-tag">React Native</span>
-                <span class="matrix-tag special">BLoC Architecture</span>
-                <span class="matrix-tag">GetX State Layers</span>
-                <span class="matrix-tag">Clean Domain Rules</span>
-                <span class="matrix-tag">Automated CI/CD Pipelines</span>
-                <span class="matrix-tag special">✨ AI Vibe Coding Integration</span>
+                <span class="matrix-tag special">BLoC Engine</span>
+                <span class="matrix-tag">GetX Layers</span>
+                <span class="matrix-tag">Clean Architecture</span>
+                <span class="matrix-tag">CI/CD Pipelines</span>
+                <span class="matrix-tag special">✨ Vibe Coding Orchestration</span>
             </div>
         </section>
 
-        <!-- SECTION 2: PRODUCTION EXPERIENCES -->
-        <section class="panel">
+        <!-- SECTION 2: SHOWCASE -->
+        <section class="panel project-card">
             <h2>Production_Showcase</h2>
             <div class="showcase-box">
                 
                 <div class="showcase-item">
-                    <h3>🍕 Yalla Bite (يلا بايت)</h3>
-                    <p>High-end consumer interface structured around advanced animation frameworks and custom physics layers.</p>
-                    <ul class="bullet-list">
-                        <li>Engineered fluid real-time glassmorphism structures handling complex backdrop layer calculations.</li>
-                        <li>Configured intuitive transactional paths utilizing non-linear structural animation boundaries.</li>
-                    </ul>
+                    <div>
+                        <h3>🍕 Yalla Bite (يلا بايت)</h3>
+                        <p>High-end digital consumer ecosystem implementing asynchronous gestures and layered parallax math transformations.</p>
+                        <ul class="bullet-list">
+                            <li>Glassmorphism matrices derived from touch dynamics.</li>
+                            <li>Linear UI state-morphs executing continuous rendering paths.</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-asset">
+                        <img src="https://media.giphy.com/media/your-checkout-animation.gif" alt="Yalla Bite Rendering Instance">
+                    </div>
                 </div>
 
                 <div class="showcase-item">
-                    <h3>🏥 National Health Ecosystems</h3>
-                    <p>Scaled stable deployment layers supporting essential medical tracking workflows on a national scale.</p>
-                    <ul class="bullet-list">
-                        <li><b>Dr@Hakeem:</b> Tailored high-density workspace layers for clinical professionals.</li>
-                        <li><b>My Hakeem:</b> Accessible patient records environment built for zero-friction navigation.</li>
-                    </ul>
+                    <div>
+                        <h3>🏥 National Health Platforms</h3>
+                        <p>Scaled core native architectures ensuring operational reliability for public healthcare applications.</p>
+                        <ul class="bullet-list">
+                            <li><b>Dr@Hakeem:</b> Clinical records delivery systems for secure runtime environments.</li>
+                            <li><b>My Hakeem:</b> Patient telemetry configuration templates.</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-asset">
+                        <img src="https://media.giphy.com/media/your-3d-parallax.gif" alt="E-Health Operational Interface">
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECTION 3: SYSTEM LOGS (TIMELINE) -->
-        <section class="panel">
-            <h2>Professional_Registry</h2>
+        <!-- SECTION 3: SYSTEM HISTORIC LOG -->
+        <section class="panel project-card">
+            <h2>Timeline_Registry</h2>
             <div class="history-tree">
                 
                 <div class="tree-node">
                     <div class="node-role">Senior Mobile Developer</div>
-                    <div class="node-meta">Electronic Health Solutions &bull; 2024 [NOV] — PRESENT</div>
+                    <div class="node-meta">Electronic Health Solutions &bull; 2024 — PRESENT</div>
                 </div>
 
                 <div class="tree-node">
                     <div class="node-role">Specialist Software Developer</div>
-                    <div class="node-meta">2015 [MAY] — 2024 [NOV]</div>
+                    <div class="node-meta">2015 — 2024</div>
                 </div>
 
                 <div class="tree-node">
@@ -419,6 +450,61 @@
 
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        // 1. ENTRY TIMELINE SEQUENCING
+        const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1 } });
+        
+        tl.to("#monoTag", { opacity: 1, y: 0, startAt: { y: -20 } })
+          .to("#mainTitle", { opacity: 1, y: 0, startAt: { y: -20 } }, "-=0.8")
+          .to("#tagline", { opacity: 1, y: 0, startAt: { y: -10 } }, "-=0.8")
+          .to("#actions", { opacity: 1, y: 0, startAt: { y: 10 } }, "-=0.8")
+          .to(".panel", { opacity: 1, y: 0, stagger: 0.15, startAt: { y: 40 } }, "-=1");
+
+        // 2. MOUSE-TRACKING AMBIENT LIGHT ENGINE
+        const glow = document.getElementById("glow");
+        window.addEventListener("mousemove", (e) => {
+            gsap.to(glow, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.6,
+                ease: "power2.out"
+            });
+        });
+
+        // 3. 3D PARALLAX TILT INTERACTION FOR CARDS
+        const cards = document.querySelectorAll(".project-card");
+        cards.forEach(card => {
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - (rect.width / 2);
+                const y = e.clientY - rect.top - (rect.height / 2);
+                
+                // Maps movement ranges to mild rotational transformations
+                gsap.to(card, {
+                    rotateX: -y * 0.03,
+                    rotateY: x * 0.03,
+                    transformPerspective: 1000,
+                    z: 10,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    z: 0,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
