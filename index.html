@@ -43,7 +43,7 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            perspective: 1000px;
+            perspective: 1000px; /* Enables 3D Card Tilts */
         }
 
         /* Ambient Cursor-Tracking Flashlight Glow */
@@ -57,6 +57,7 @@
             left: -250px;
             z-index: -1;
             pointer-events: none;
+            transform: translate3d(0,0,0);
             will-change: transform;
         }
 
@@ -80,7 +81,7 @@
             .left-column {
                 position: sticky;
                 top: 100px;
-                height: calc(100vh - 160px);
+                height: calc(100vh - 200px);
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -89,29 +90,27 @@
 
         /* --- Profile Photo Styling --- */
         .profile-container {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
             margin-bottom: 24px;
             background: #0d0e15;
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            position: relative;
+            opacity: 0; /* Animated via GSAP */
         }
 
         .profile-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: contrast(1.04) brightness(0.95) grayscale(0.15);
-            transition: filter 0.4s ease, transform 0.4s ease;
+            filter: contrast(1.02) brightness(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .profile-container:hover img {
-            filter: contrast(1) brightness(1) grayscale(0);
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         /* --- Panel Components --- */
@@ -123,7 +122,7 @@
             border-radius: 20px;
             padding: 36px;
             margin-bottom: 24px;
-            opacity: 0;
+            opacity: 0; /* Animated via GSAP on initialization */
             transform-style: preserve-3d;
             transform: translateZ(0);
             will-change: transform, opacity;
@@ -153,7 +152,7 @@
         .tagline {
             color: var(--text-body);
             font-size: 1.05rem;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             opacity: 0;
         }
 
@@ -378,7 +377,7 @@
             <div class="profile-container" id="profilePic">
                 <img src="jawad_image.png" alt="Jawad AL-Naimat Profile Portrait">
             </div>
-            
+
             <span class="mono-tag" id="monoTag">Architecture Profile</span>
             <h1 id="mainTitle">Jawad AL-Naimat</h1>
             <p class="tagline" id="tagline">Engineering premium cross-platform mobile systems. Focused on buttery smooth layout execution ($120\text{Hz}$), explicit UI states, and rapid JavaScript-orchestrated interactivity.</p>
@@ -481,9 +480,10 @@
         // 1. ENTRY TIMELINE SEQUENCING
         const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1 } });
         
-        tl.to("#profilePic", { opacity: 1, y: 0, startAt: { y: -15 } })
-          .to("#monoTag", { opacity: 1, y: 0, startAt: { y: -15 } }, "-=0.8")
-          .to("#mainTitle", { opacity: 1, y: 0, startAt: { y: -15 } }, "-=0.8")
+        // ADDED #profilePic to the entry animation sequence
+        tl.to("#profilePic", { opacity: 1, y: 0, startAt: { y: -20 } })
+          .to("#monoTag", { opacity: 1, y: 0, startAt: { y: -20 } }, "-=0.8")
+          .to("#mainTitle", { opacity: 1, y: 0, startAt: { y: -20 } }, "-=0.8")
           .to("#tagline", { opacity: 1, y: 0, startAt: { y: -10 } }, "-=0.8")
           .to("#actions", { opacity: 1, y: 0, startAt: { y: 10 } }, "-=0.8")
           .to(".panel", { opacity: 1, y: 0, stagger: 0.15, startAt: { y: 40 } }, "-=1");
